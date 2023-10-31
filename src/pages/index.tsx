@@ -1,47 +1,27 @@
-import Intro from '../components/Home'
-import { useRef, useEffect } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import Intro from '@/components/Home'
+import { useRef } from 'react'
 import Head from 'next/head'
 import About from '@/components/About'
 import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
 
-// function useIsInViewport(ref) {
-//   const [isIntersecting, setIsIntersecting] = useState(false)
+export const getServerSideProps = async () => {
+  const res = await fetch('http://localhost:3001/api/home')
+  const data = await res.json()
+  return { props: { homeData: data.response } }
+}
 
-//   const observer = useMemo(
-//     () =>
-//       new IntersectionObserver(([entry]) =>
-//         setIsIntersecting(entry.isIntersecting),
-//       ),
-//     [],
-//   )
-
-//   useEffect(() => {
-//     observer.observe(ref.current)
-
-//     return () => {
-//       observer.disconnect()
-//     }
-//   }, [ref, observer])
-
-//   return isIntersecting
-// }
-
-export default function Home() {
+export default function Home({ homeData }: Record<string, any>) {
   const scrollRef = useRef(null)
-  // const isInView = useIsInViewport(scrollRef)
-  // console.log(isInView, 'bool')
 
-  useEffect(() => {
-    console.log('hello')
-  }, [])
   return (
     <div className=''>
       <Head>
         <title>Sudeep</title>
       </Head>
       <div ref={scrollRef}>
-        <Intro />
+        <Intro data={homeData} />
       </div>
       <About />
       <Projects />

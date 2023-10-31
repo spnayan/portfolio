@@ -1,0 +1,25 @@
+{
+  "home": {
+    "position": "Frontend Developer",
+    "name": "Sudeep Puri",
+    "description": "I am a frontend developer and enjoy playing with codes. I love travelling, music and movies.",
+    "social_links": [
+      {
+        "id": 1,
+        "icon": "home",
+        "url": "https://www.google.com"
+      },
+      {
+        "id": 2,
+        "icon": "home",
+        "url": "https://www.google.com"
+      },
+      {
+        "id": 3,
+        "icon": "home",
+        "url": "https://www.google.com"
+      }
+    ],
+    "profile_image": "hello"
+  }
+}
