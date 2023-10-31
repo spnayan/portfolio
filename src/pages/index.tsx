@@ -7,7 +7,7 @@ import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
 
 export const getServerSideProps = async () => {
-  const res = await fetch('http://localhost:3001/api/home')
+  const res = await fetch('https://spnayan.github.io/portfolio/api/home')
   const data = await res.json()
   return { props: { homeData: data.response } }
 }
